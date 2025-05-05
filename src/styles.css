@@ -3,10 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
-    --primary-color: var(--p-teal-700);
-    --primary-color-text: #ffffff;
-    --secondary-color: var(--p-sky-700);
-    --secondary-color-text: #ffffff;
-}
+    --p-teal-700: #047857;
+    --p-sky-700: #0369a1;
+  }
