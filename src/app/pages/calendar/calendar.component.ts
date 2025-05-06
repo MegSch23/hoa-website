@@ -15,7 +15,8 @@ export class CalendarComponent {
   calendarOptions: CalendarOptions = {
     plugins: [dayGridPlugin],
     initialView: 'dayGridMonth',
-    events: []
+    events: [],
+    eventContent: this.renderEventContent
   };
 
   constructor(private calendarService: CalendarService) {
@@ -25,5 +26,17 @@ export class CalendarComponent {
         events
       };
     });
+  }
+
+  renderEventContent(arg: any) {
+    return {
+      html: `
+        <div class="text-sm">
+          <div class="font-bold">${arg.event.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} - ${arg.event.title}</div>
+          <div>${arg.event.extendedProps.location || ''}</div>
+          <div>${arg.event.extendedProps.description || ''}</div>
+        </div>
+      `
+    };
   }
 }
