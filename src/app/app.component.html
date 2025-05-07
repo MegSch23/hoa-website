@@ -1,10 +1,19 @@
 
-<p-menubar [model]="items" styleClass="bg-primary shadow-md">
+<p-menubar [model]="items" styleClass="bg-primary text-white px-6 py-3 shadow-lg">
     <ng-template pTemplate="start">
-        <img src="assets/logo.png" alt="Wimbledon Village HOA Logo" class="h-10 w-10 rounded-full mr-2 cursor-pointer" (click)="redirectToHome()" />
-        <h1 class="text-2xl font-semibold cursor-pointer" (click)="redirectToHome()">Wimbledon Village HOA</h1>
+      <div class="flex items-center space-x-4 cursor-pointer" (click)="redirectToHome()">
+        <img src="assets/logo.png" alt="Wimbledon Village HOA Logo" class="h-10 w-10 rounded-full shadow-md transition-transform hover:scale-105" />
+        <span class="text-2xl font-bold tracking-tight">Wimbledon Village HOA</span>
+      </div>
     </ng-template>
-</p-menubar>
+  
+    <ng-template pTemplate="end">
+      <div class="flex items-center space-x-3">
+        <button pButton type="button" icon="pi pi-bell" class="p-button-rounded p-button-text text-white hover:text-accent transition-colors duration-200"></button>
+        <button pButton type="button" icon="pi pi-cog" class="p-button-rounded p-button-text text-white hover:text-accent transition-colors duration-200"></button>
+      </div>
+    </ng-template>
+  </p-menubar>
 <div class="min-h-screen h-screen overflow-hidden">
     <router-outlet ></router-outlet>
     </div>
