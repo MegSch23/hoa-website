@@ -19,7 +19,7 @@ export class AppComponent {
     
     { label: 'Governance', icon: 'pi pi-fw pi-shield', items: [
       { label: 'Governance Home', icon: 'pi pi-fw pi-book', routerLink: '/governance' },
-      { label: 'Board Meeting Minutes', icon: 'pi pi-fw pi-book', routerLink: '/governance/hoa-meeting-minutes' },
+      { label: 'Board Meeting Minutes', icon: 'pi pi-fw pi-file', routerLink: '/governance/hoa-meeting-minutes' },
       { label: 'HOA Bylaws', icon: 'pi pi-fw pi-hammer', routerLink: '/governance/hoa-bylaws' },
     ] },
   ]
