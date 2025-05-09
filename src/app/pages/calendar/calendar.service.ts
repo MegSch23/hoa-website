@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable, of, from } from 'rxjs';
 import { trpc } from '../../trcp/trpc-client';
-import { z } from 'zod';
+
+type CalendarEvent ={ title: string; date: string; location: string, description: string | undefined }
 
 
 @Injectable({
@@ -11,11 +11,11 @@ import { z } from 'zod';
 export class CalendarService {
  constructor() {}
 
-  getEvents(): Observable<any> {
+  getEvents(): Observable<CalendarEvent[]> {
     return from(trpc.getEvents.query());
   }
 
-  addEvent(event: { title: string; date: string; location: string }): Observable<any> {
+  addEvent(event: CalendarEvent): Observable<any> {
     return from(trpc.addEvent.mutate(event));
   }
 

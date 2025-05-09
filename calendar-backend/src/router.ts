@@ -12,15 +12,15 @@ export const appRouter = t.router({
   getEvents: t.procedure.query(() => {
     // Return events; ideally, this would come from a database
     return [
-      { id: 1, title: 'Monthly Board Meeting', date: '2025-05-12', location: '259 1/2' },
-      { id: 2, title: 'Spring Cleanup', date: '2025-06-10', location: 'Community Garden' },
-      { id: 3, title: 'Monthly Board Meeting', date: '2025-07-21', location: 'Clubhouse' },
-      { id: 4, title: 'Annual HOA Meeting', date: '2025-06-16', location: 'J\'s White Elephant' },
+      { id: 1, title: 'Monthly Board Meeting', date: '2025-05-12', location: '259 1/2', description: 'Discuss community issues and updates' },
+      { id: 2, title: 'Spring Cleanup', date: '2025-06-10', location: 'Community Garden', description: 'Community cleanup event' },
+      { id: 3, title: 'Monthly Board Meeting', date: '2025-07-21', location: 'Clubhouse', description: 'Discuss community issues and updates' },    
+      { id: 4, title: 'Annual HOA Meeting', date: '2025-06-16', location: 'J\'s White Elephant', description: 'Annual meeting to discuss community issues and updates' },
     ];
   }),
 
   addEvent: t.procedure
-    .input(z.object({ title: z.string(), date: z.string(), location: z.string() }))
+    .input(z.object({ title: z.string(), date: z.string(), location: z.string(), description: z.string().optional() }))
     .mutation(({ input }) => {
       // Add event logic, would be connected to DB in production
       return { success: true, event: input };

@@ -35,8 +35,8 @@ export class CalendarComponent {
       html: `
         <div class="text-sm">
           <div class="font-bold text-center" style="text-wrap: wrap;">${arg.event.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} - ${arg.event.title}</div>
-          <div style="text-wrap: wrap; 	text-align: center;">${arg.event.extendedProps.location || ''}</div>
-          <div style="text-wrap: wrap; 	text-align: center;">${arg.event.extendedProps.description || ''}</div>
+          <div class="italic text-center" style="text-wrap: wrap;">${arg.event.extendedProps.location || ''}</div>
+          <div class="pl-1" style="text-wrap: wrap;">${arg.event.extendedProps.description || ''}</div>
         </div>
       `
     };
