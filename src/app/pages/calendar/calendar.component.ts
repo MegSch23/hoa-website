@@ -12,6 +12,7 @@ import { CalendarService } from './calendar.service';
   styleUrl: './calendar.component.css'
 })
 export class CalendarComponent {
+  events: any[] = [];
   calendarOptions: CalendarOptions = {
     plugins: [dayGridPlugin],
     initialView: 'dayGridMonth',
@@ -20,21 +21,22 @@ export class CalendarComponent {
   };
 
   constructor(private calendarService: CalendarService) {
-    this.calendarService.getEvents().subscribe((events) => {
+    this.calendarService.getEvents().subscribe((data) => {
+      this.events = data;
       this.calendarOptions = {
-        ...this.calendarOptions,
-        events
-      };
-    });
+          ...this.calendarOptions,
+          events: data
+    }});
+  
   }
 
   renderEventContent(arg: any) {
     return {
       html: `
         <div class="text-sm">
-          <div class="font-bold">${arg.event.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} - ${arg.event.title}</div>
-          <div>${arg.event.extendedProps.location || ''}</div>
-          <div>${arg.event.extendedProps.description || ''}</div>
+          <div class="font-bold text-center" style="text-wrap: wrap;">${arg.event.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} - ${arg.event.title}</div>
+          <div style="text-wrap: wrap; 	text-align: center;">${arg.event.extendedProps.location || ''}</div>
+          <div style="text-wrap: wrap; 	text-align: center;">${arg.event.extendedProps.description || ''}</div>
         </div>
       `
     };
