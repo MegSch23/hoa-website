@@ -1,1 +1,71 @@
-<p>board-meeting-minutes works!</p>
+<div class="max-w-4xl mx-auto px-4 py-12 text-text">
+  <h1 class="text-3xl font-bold text-center mb-6 text-text">HOA Board Meeting Minutes</h1>
+
+  <div *ngIf="meetings.length > 0; else noMeetings" class="grid gap-6">
+    <div *ngFor="let meeting of meetings" class="bg-surface border border-border rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
+      <div class="flex items-center mb-4">
+        <!-- Icon for Meeting -->
+        <div class="bg-primary text-surface p-3 rounded-full mr-4">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 17v-6h6v6m2 4H7a2 2 0 01-2-2V5a2 2 0 012-2h5l2 2h5a2 2 0 012 2v12a2 2 0 01-2 2z"></path>
+          </svg>
+        </div>
+        <h2 class="text-lg font-semibold text-text">{{ meeting.date | date: 'longDate' }}</h2>
+      </div>
+
+      <p class="text-sm text-text-muted mb-4">{{ meeting.summary }}</p>
+
+      <div class="grid grid-cols-2 gap-6">
+        <div *ngFor="let topic of meeting.topics" class="flex items-center space-x-2">
+          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 3v6m-3-3h6M12 15v6m-3-3h6m6-7v6m-3-3h6"></path>
+          </svg>
+          <span class="text-sm text-text">{{ topic }}</span>
+        </div>
+      </div>
+
+      <h3 class="text-md font-semibold text-text mt-6">Decisions Made:</h3>
+      <ul class="list-disc ml-6">
+        <li *ngFor="let decision of meeting.decisions" class="text-sm text-text-muted">{{ decision }}</li>
+      </ul>
+
+      <button (click)="viewMeetingDetails(meeting.id)" class="mt-4 px-4 py-2 bg-accent text-surface font-medium rounded-lg hover:bg-primary-hover transition">
+        View Details
+      </button>
+    </div>
+  </div>
+
+  <ng-template #noMeetings>
+    <p class="text-center text-text-muted text-sm">No meeting minutes available.</p>
+  </ng-template>
+</div>
+
+<!-- Meeting Details Modal -->
+<div *ngIf="selectedMeeting" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+  <div class="bg-surface p-6 rounded-xl w-3/4 max-w-3xl">
+    <h2 class="text-2xl font-bold text-text">{{ selectedMeeting.date | date: 'longDate' }} - Meeting Minutes</h2>
+    <p class="text-sm text-text-muted mt-4">{{ selectedMeeting.summary }}</p>
+
+    <h3 class="text-lg font-semibold text-text mt-6">Topics Discussed</h3>
+    <ul class="list-disc ml-6">
+      <li *ngFor="let topic of selectedMeeting.topics">{{ topic }}</li>
+    </ul>
+
+    <h3 class="text-lg font-semibold text-text mt-6">Decisions Made</h3>
+    <ul class="list-disc ml-6">
+      <li *ngFor="let decision of selectedMeeting.decisions">{{ decision }}</li>
+    </ul>
+
+    <div class="mt-6 flex justify-end gap-4">
+      <button (click)="downloadPDF()" class="px-4 py-2 bg-accent text-surface font-medium rounded-lg hover:bg-primary-hover transition">
+        Download PDF
+      </button>
+      <button (click)="closeMeetingDetails()" class="px-4 py-2 bg-gray-200 text-text font-medium rounded-lg hover:bg-gray-300 transition">
+        Close
+      </button>
+    </div>
+  </div>
+</div>

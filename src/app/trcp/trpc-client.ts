@@ -16,6 +16,6 @@ export const trpc = createTRPCClient<AppRouter>({
   
   // You can now use this trpc client to interact with your backend
   trpc.getEvents.query().then(events => {
-    console.log(events); // Display events
+    // console.log(events); // Display events
     return of(events)
   });
