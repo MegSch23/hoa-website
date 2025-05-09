@@ -1,0 +1,40 @@
+<div class="max-w-4xl mx-auto px-4 py-8 text-text">
+  <h1 class="text-2xl font-bold text-center mb-8 text-text">HOA Bylaws</h1>
+
+  <div class="mb-8">
+    <p class="text-lg text-text-muted mb-4">The following rules and regulations apply to all residents and homeowners within the community. Adherence to these rules ensures a safe, orderly, and pleasant living environment for all.</p>
+  </div>
+
+  <!-- General Rules Section -->
+  <section class="mb-8">
+    <h2 class="text-xl font-semibold text-text mb-4">General Rules</h2>
+    <ul class="list-decimal pl-6 space-y-3">
+      <li class="text-lg text-text">Rule 1: All residents must adhere to the parking regulations and park only in designated areas.</li>
+      <li class="text-lg text-text">Rule 2: No alterations to the exterior of homes without prior written approval from the HOA board.</li>
+      <li class="text-lg text-text">Rule 3: Quiet hours are from 10 PM to 7 AM. Please be mindful of noise levels during these times.</li>
+      <li class="text-lg text-text">Rule 4: Trash and recycling bins should be stored out of sight when not in use, and only placed at the curb on the day of collection.</li>
+      <li class="text-lg text-text">Rule 5: Pets must be kept on a leash when outside. Owners are responsible for cleaning up after their pets.</li>
+    </ul>
+  </section>
+
+  <!-- Fines & Penalties Section -->
+  <section class="mb-8">
+    <h2 class="text-xl font-semibold text-text mb-4">Fines & Penalties</h2>
+    <p class="text-lg text-text-muted mb-4">Failure to comply with these rules may result in fines or other penalties as outlined below. The fines are cumulative for each offense, and repeated violations may result in additional actions.</p>
+    <ul class="list-decimal pl-6 space-y-3">
+      <li class="text-lg text-text">Parking Violations: $50 per incident</li>
+      <li class="text-lg text-text">Unauthorized Exterior Modifications: $200 per violation</li>
+      <li class="text-lg text-text">Noise Violations: $25 for the first offense, $50 for subsequent offenses</li>
+      <li class="text-lg text-text">Improper Trash Disposal: $30 per incident</li>
+      <li class="text-lg text-text">Pet Violations (Leash Law): $25 per offense</li>
+    </ul>
+  </section>
+
+  <!-- Download PDF Button -->
+  <div class="text-center">
+    <button (click)="downloadPDF()"
+            class="px-6 py-3 bg-accent text-surface font-semibold rounded-lg hover:bg-primary-hover transition">
+      Download Bylaws as PDF
+    </button>
+  </div>
+</div>
