@@ -60,4 +60,4 @@ For more information on using the Angular CLI, including detailed command refere
 
 
 ## Running the backend
-Run the command npm run start
+Go into the backend directory. Run the command npm run start

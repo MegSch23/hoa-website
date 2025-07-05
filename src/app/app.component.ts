@@ -15,6 +15,7 @@ export class AppComponent {
   items: MenuItem[] = [
     { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: '/home' },
     { label: 'Calendar', icon: 'pi pi-fw pi-calendar', routerLink: '/calendar' },
+    { label: 'Communications', icon: 'pi pi-fw pi-comment', routerLink: '/communications' },
     { label: 'Forms', icon: 'pi pi-fw pi-file', routerLink: '/forms' },
     
     { label: 'Governance', icon: 'pi pi-fw pi-shield', items: [

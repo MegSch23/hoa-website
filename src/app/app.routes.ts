@@ -6,10 +6,12 @@ import { FormsComponent } from './pages/forms/forms.component';
 import { GovernanceComponent } from './pages/governance/governance.component';
 import { HoaBylawsComponent } from './pages/governance/hoa-bylaws/hoa-bylaws.component';
 import { BoardMeetingMinutesComponent } from './pages/governance/board-meeting-minutes/board-meeting-minutes.component';
+import { CommunicationsComponent } from './pages/communications/communications.component';
 
 export const routes: Routes = [
     {path: 'home', component: HomeComponent, title: 'Home'},
     {path: 'calendar', component: CalendarComponent, title: 'Calendar'},
+    {path: 'communications', component: CommunicationsComponent, title: 'Communications'},
     {path: 'forms', component: FormsComponent, title: 'Forms'},
     {path: 'governance', component: GovernanceComponent, title: 'Governance'},
     {path: 'governance/hoa-bylaws', component: HoaBylawsComponent, title: 'HOA Bylaws'},

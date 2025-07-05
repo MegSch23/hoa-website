@@ -12,10 +12,12 @@ export const appRouter = t.router({
   getEvents: t.procedure.query(() => {
     // Return events; ideally, this would come from a database
     return [
-      { id: 1, title: 'Monthly Board Meeting', date: '2025-05-12 18:00', location: '259 1/2', description: 'Discuss community issues and updates' },
-      { id: 2, title: 'Spring Cleanup', date: '2025-06-10 12:00', location: 'Community Garden', description: 'Community cleanup event' },
-      { id: 3, title: 'Monthly Board Meeting', date: '2025-07-21 18:00', location: 'Clubhouse', description: 'Discuss community issues and updates' },    
-      { id: 4, title: 'Annual HOA Meeting', date: '2025-06-16 18:00', location: 'J\'s White Elephant', description: 'Annual meeting to discuss community issues and updates' },
+      { id: 1, title: 'Monthly Board Meeting', date: '2025-07-21 18:00', location: '259 1/2', description: 'Discuss community issues and updates' },
+      { id: 2, title: 'Spring Cleanup', date: '2025-07-12 12:00', location: 'Community Garden', description: 'Community cleanup event' },
+      { id: 3, title: 'Monthly Board Meeting', date: '2025-08-18 18:00', location: '259 1/2', description: 'Discuss community issues and updates' },   
+      { id: 4, title: 'Monthly Board Meeting', date: '2025-09-15 18:00', location: '259 1/2', description: 'Discuss community issues and updates' },  
+      { id: 5, title: 'Monthly Board Meeting', date: '2025-10-20 18:00', location: '259 1/2', description: 'Discuss community issues and updates' },  
+
     ];
   }),
 

@@ -1,0 +1,98 @@
+<div class="max-w-4xl mx-auto px-4 py-12 text-text">
+  <h1 class="text-3xl font-bold text-center mb-6 text-text">Resident Communications</h1>
+  <p class="text-lg text-text-muted mb-8 text-center">Browse messages and newsletters shared with residents.</p>
+
+  <!-- Tabs -->
+  <div class="flex justify-center mb-8 border-b border-border">
+    <button 
+      (click)="activeTab = 'texts'; resetPagination()"
+      [ngClass]="activeTab === 'texts' ? 'border-b-2 border-primary text-primary' : 'text-text-muted'"
+      class="relative px-4 py-2 text-lg font-medium transition"
+    >
+      Text Messages
+      <span *ngIf="textMessages.length > 0" class="absolute top-0 right-0 mt-[-4px] mr-[-10px] bg-accent text-surface text-xs font-bold px-2 py-0.5 rounded-full">
+        {{ textMessages.length }}
+      </span>
+    </button>
+    <button 
+      (click)="activeTab = 'newsletters'; resetPagination()"
+      [ngClass]="activeTab === 'newsletters' ? 'border-b-2 border-primary text-primary' : 'text-text-muted'"
+      class="relative px-4 py-2 text-lg font-medium transition"
+    >
+      Newsletters
+      <span *ngIf="newsletters.length > 0" class="absolute top-0 right-0 mt-[-4px] mr-[-10px] bg-accent text-surface text-xs font-bold px-2 py-0.5 rounded-full">
+        {{ newsletters.length }}
+      </span>
+    </button>
+  </div>
+
+  <!-- Text Messages Tab -->
+  <div *ngIf="activeTab === 'texts'" class="transition-opacity duration-500" [ngClass]="{'opacity-100': activeTab === 'texts', 'opacity-0': activeTab !== 'texts'}">
+    <input
+      type="text"
+      [(ngModel)]="textFilter"
+      (input)="textPage = 1"
+      placeholder="Search messages..."
+      class="w-full px-4 py-2 mb-6 border border-border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary"
+    />
+
+    <div class="grid gap-6">
+      <div *ngFor="let message of paginatedTexts" class="bg-surface border border-border rounded-2xl p-6 shadow-md hover:shadow-xl transition">
+        <div class="flex items-center gap-2 mb-2">
+          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8l-8.44 5.63a2 2 0 01-2.12 0L3 8m18 8H3"></path>
+          </svg>
+          <h3 class="text-lg font-semibold text-text">{{ message.title }}</h3>
+        </div>
+        <p class="text-sm text-text-muted mb-2">{{ message.date | date: 'longDate' }}</p>
+        <p class="text-text text-sm leading-relaxed">{{ message.content }}</p>
+      </div>
+    </div>
+
+    <div class="flex justify-center gap-4 mt-6">
+      <button (click)="textPage = textPage - 1" [disabled]="textPage === 1"
+              class="px-4 py-2 bg-gray-200 text-text rounded hover:bg-gray-300 disabled:opacity-50">Previous</button>
+      <span class="text-sm text-text-muted">Page {{ textPage }} of {{ totalTextPages }}</span>
+      <button (click)="textPage = textPage + 1" [disabled]="textPage === totalTextPages"
+              class="px-4 py-2 bg-gray-200 text-text rounded hover:bg-gray-300 disabled:opacity-50">Next</button>
+    </div>
+  </div>
+
+  <!-- Newsletters Tab -->
+  <div *ngIf="activeTab === 'newsletters'" class="transition-opacity duration-500" [ngClass]="{'opacity-100': activeTab === 'newsletters', 'opacity-0': activeTab !== 'newsletters'}">
+    <input
+      type="text"
+      [(ngModel)]="newsletterFilter"
+      (input)="newsletterPage = 1"
+      placeholder="Search newsletters..."
+      class="w-full px-4 py-2 mb-6 border border-border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary"
+    />
+
+    <div class="grid gap-6">
+      <div *ngFor="let newsletter of paginatedNewsletters" class="bg-surface border border-border rounded-2xl p-6 shadow-md hover:shadow-xl transition">
+        <div class="flex items-center gap-2 mb-2">
+          <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 4h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"></path>
+          </svg>
+          <h3 class="text-lg font-semibold text-text">{{ newsletter.title }}</h3>
+        </div>
+        <p class="text-sm text-text-muted mb-4">{{ newsletter.date | date: 'longDate' }}</p>
+        <a [href]="newsletter.file" target="_blank" download
+           class="inline-flex items-center gap-2 px-4 py-2 bg-accent text-surface font-medium rounded-lg hover:bg-primary-hover transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+          </svg>
+          Download Newsletter
+        </a>
+      </div>
+    </div>
+
+    <div class="flex justify-center gap-4 mt-6">
+      <button (click)="newsletterPage = newsletterPage - 1" [disabled]="newsletterPage === 1"
+              class="px-4 py-2 bg-gray-200 text-text rounded hover:bg-gray-300 disabled:opacity-50">Previous</button>
+      <span class="text-sm text-text-muted">Page {{ newsletterPage }} of {{ totalNewsletterPages }}</span>
+      <button (click)="newsletterPage = newsletterPage + 1" [disabled]="newsletterPage === totalNewsletterPages"
+              class="px-4 py-2 bg-gray-200 text-text rounded hover:bg-gray-300 disabled:opacity-50">Next</button>
+    </div>
+  </div>
+</div>
