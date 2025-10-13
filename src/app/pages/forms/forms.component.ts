@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-forms',
   imports: [CommonModule, FormsModule],
   templateUrl: './forms.component.html',
-  styleUrl: './forms.component.css'
 })
 export class FormsComponent {
   forms: HOAForm[] = dummyForms;

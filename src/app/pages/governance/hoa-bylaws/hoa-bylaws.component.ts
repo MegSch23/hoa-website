@@ -5,7 +5,6 @@ import { jsPDF } from 'jspdf';
   selector: 'app-hoa-bylaws',
   imports: [],
   templateUrl: './hoa-bylaws.component.html',
-  styleUrl: './hoa-bylaws.component.css'
 })
 export class HoaBylawsComponent {
     downloadPDF() {

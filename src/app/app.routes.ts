@@ -11,9 +11,9 @@ export const routes: Routes = [
     {path: 'home', component: HomeComponent, title: 'Home'},
     {path: 'calendar', component: CalendarComponent, title: 'Calendar'},
     {path: 'forms', component: FormsComponent, title: 'Forms'},
-    {path: 'governance', component: GovernanceComponent, title: 'Governance'},
-    {path: 'governance/hoa-bylaws', component: HoaBylawsComponent, title: 'HOA Bylaws'},
-    {path: 'governance/hoa-meeting-minutes', component: BoardMeetingMinutesComponent, title: 'HOA Meeting Minutes'},
+    // {path: 'governance', component: GovernanceComponent, title: 'Governance'},
+    // {path: 'governance/hoa-bylaws', component: HoaBylawsComponent, title: 'HOA Bylaws'},
+    // {path: 'governance/hoa-meeting-minutes', component: BoardMeetingMinutesComponent, title: 'HOA Meeting Minutes'},
     {path: '**', redirectTo: 'home'}, // Redirect to home for any unknown routes
 
 ];

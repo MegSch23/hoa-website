@@ -6,7 +6,6 @@ import { jsPDF } from 'jspdf';
   selector: 'app-board-meeting-minutes',
   imports: [CommonModule],
   templateUrl: './board-meeting-minutes.component.html',
-  styleUrl: './board-meeting-minutes.component.css'
 })
 export class BoardMeetingMinutesComponent {
   meetings = [
