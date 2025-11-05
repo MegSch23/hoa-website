@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: wimbledon-village-hoa
+    env: static
+    branch: phase-0.5  # change this if your branch is different
+    buildCommand: "ng build --prod"
+    publishPath: "dist/wimbledon-village-hoa"
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+        status: 200
