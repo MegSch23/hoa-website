@@ -6,11 +6,13 @@ import { FormsComponent } from './pages/forms/forms.component';
 import { GovernanceComponent } from './pages/governance/governance.component';
 import { HoaBylawsComponent } from './pages/governance/hoa-bylaws/hoa-bylaws.component';
 import { BoardMeetingMinutesComponent } from './pages/governance/board-meeting-minutes/board-meeting-minutes.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 
 export const routes: Routes = [
     {path: 'home', component: HomeComponent, title: 'Home'},
     {path: 'calendar', component: CalendarComponent, title: 'Calendar'},
     {path: 'forms', component: FormsComponent, title: 'Forms'},
+    {path: 'contact-us', component: ContactUsComponent, title: 'Contact Us'},
     // {path: 'governance', component: GovernanceComponent, title: 'Governance'},
     // {path: 'governance/hoa-bylaws', component: HoaBylawsComponent, title: 'HOA Bylaws'},
     // {path: 'governance/hoa-meeting-minutes', component: BoardMeetingMinutesComponent, title: 'HOA Meeting Minutes'},

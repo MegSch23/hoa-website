@@ -16,7 +16,7 @@ export class AppComponent {
     { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: '/home' },
     { label: 'Calendar', icon: 'pi pi-fw pi-calendar', routerLink: '/calendar' },
     { label: 'Forms', icon: 'pi pi-fw pi-file', routerLink: '/forms' },
-    
+    { label: 'Contact Us', icon: 'pi pi-fw pi-envelope', routerLink: '/contact-us' },
     // { label: 'Governance', icon: 'pi pi-fw pi-shield', items: [
     //   { label: 'Governance Home', icon: 'pi pi-fw pi-book', routerLink: '/governance' },
     //   { label: 'Board Meeting Minutes', icon: 'pi pi-fw pi-file', routerLink: '/governance/hoa-meeting-minutes' },
