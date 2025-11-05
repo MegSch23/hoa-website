@@ -3,7 +3,7 @@ services:
     name: wimbledon-village-hoa
     env: static
     branch: phase-0.5  # change this if your branch is different
-    buildCommand: "ng build --prod"
+    buildCommand: "npm install && ng build --configuration production"
     publishPath: "dist/wimbledon-village-hoa"
     routes:
       - type: rewrite
