@@ -4,7 +4,7 @@ services:
     env: static
     branch: phase-0.5  # change this if your branch is different
     buildCommand: "npm install && ng build --configuration production"
-    publishPath: "dist/wimbledon-village-hoa"
+    publishPath: "dist/wimbledon-village-hoa/browser"
     routes:
       - type: rewrite
         source: /*
