@@ -41,7 +41,7 @@ async onSubmit(form: any) {
     const toEmail =
       this.formData.reason === 'Property Management'
         ? 'meganlschmidt23@gmail.com'
-        : 'meganschmidt23@aol.com';
+        : 'meganlschmidt23@gmail.com';
 
     const templateParams = {
       ...this.formData,
