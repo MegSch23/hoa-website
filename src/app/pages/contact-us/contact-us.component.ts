@@ -21,23 +21,22 @@ formData = {
   submitted = false;
   errorMessage = '';
 
-  async onSubmit(form: any) {
-    if (form.invalid) return;
+async onSubmit(form: any) {
+  if (form.invalid) return;
 
-    const recaptcha = (window as any).grecaptcha;
-    if (!recaptcha || !recaptcha.getResponse) {
-      this.errorMessage = 'reCAPTCHA failed to load. Please refresh and try again.';
-      return;
-    }
+  const siteKey = '6LfDnAIsAAAAADOwdJL08KlRfoMPcp7t93Vnxkhk'; 
+  const recaptcha = (window as any).grecaptcha;
 
-    const recaptchaResponse = recaptcha.getResponse();
-    if (!recaptchaResponse) {
-      this.errorMessage = 'Please complete the reCAPTCHA.';
-      return;
-    }
+  if (!recaptcha || !recaptcha.execute) {
+    this.errorMessage = 'reCAPTCHA failed to load. Please refresh and try again.';
+    return;
+  }
 
-    this.isSubmitting = true;
-    this.errorMessage = '';
+  this.isSubmitting = true;
+  this.errorMessage = '';
+
+  try {
+    const recaptchaToken = await recaptcha.execute(siteKey, { action: 'contact_us' });
 
     const toEmail =
       this.formData.reason === 'Property Management'
@@ -47,24 +46,24 @@ formData = {
     const templateParams = {
       ...this.formData,
       to_email: toEmail,
-      'g-recaptcha-response': recaptchaResponse
+      'g-recaptcha-response': recaptchaToken
     };
 
-    try {
-      await emailjs.send(
-        'service_md9t9ca',
-        'template_sdo35dm',
-        templateParams,
-        'hal3yAiB1Fdm8fAmi'
-      );
-      this.submitted = true;
-      form.resetForm();
-      (window as any).grecaptcha.reset();
-    } catch (error) {
-      console.error('Email send failed:', error);
-      this.errorMessage = 'Something went wrong. Please try again later.';
-    } finally {
-      this.isSubmitting = false;
-    }
+    await emailjs.send(
+      'service_md9t9ca',
+      'template_sdo35dm',
+      templateParams,
+      'hal3yAiB1Fdm8fAmi'
+    );
+
+    this.submitted = true;
+    form.resetForm();
+  } catch (error) {
+    console.error('Email send failed:', error);
+    this.errorMessage = 'Something went wrong. Please try again later.';
+  } finally {
+    this.isSubmitting = false;
   }
+}
+
 }

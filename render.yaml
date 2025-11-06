@@ -2,7 +2,7 @@ services:
   - type: web
     name: wimbledon-village-hoa
     env: static
-    branch: phase-0.5  # change this if your branch is different
+    branch: main 
     buildCommand: "ng build --configuration production"
     publishPath: "dist/wimbledon-village-hoa"
     routes:
