@@ -22,7 +22,7 @@
         </div>
         <h2 class="text-lg font-semibold text-text">{{ form.title }}</h2>
       </div>
-      <p class="text-sm text-text-muted mb-4">{{ form.description }}</p>
+      <p class="text-sm text-text-muted mb-4" [innerHTML]="form.description"></p>
       <a [href]="form.fileUrl" download
          class="inline-flex items-center gap-2 px-4 py-2 bg-sky-700 text-surface font-medium rounded-lg hover:bg-primary-hover transition">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
