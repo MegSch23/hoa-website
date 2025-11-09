@@ -38,10 +38,7 @@ async onSubmit(form: any) {
   try {
     const recaptchaToken = await recaptcha.execute(siteKey, { action: 'contact_us' });
 
-    const toEmail =
-      this.formData.reason === 'Contact Property Management'
-        ? 'meganlschmidt23@gmail.com'
-        : 'meganlschmidt23@gmail.com';
+    const toEmail = 'meganlschmidt23@gmail.com';
 
     const templateParams = {
       ...this.formData,
