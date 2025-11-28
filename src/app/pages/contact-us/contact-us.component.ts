@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-contact-us',
@@ -15,6 +16,8 @@ export class ContactUsComponent {
     subject: '',
     message: ''
   };
+
+  BACKEND_EMAIL_URL = environment.BACKEND_EMAIL_URL;
 
   isSubmitting = false;
   submitted = false;
@@ -39,7 +42,7 @@ export class ContactUsComponent {
       const recaptchaToken = await recaptcha.execute(siteKey, { action: 'contact_us' });
 
       // 2. Send token + form data to your Render backend
-      const response = await fetch('https://hoa-website-backend.onrender.com/send-email', {
+      const response = await fetch(this.BACKEND_EMAIL_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token: recaptchaToken, formData: this.formData })
