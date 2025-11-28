@@ -18,7 +18,7 @@
         <h3 class="text-xl font-semibold mb-2 flex items-center gap-2">
           <i class="pi pi-calendar text-accent"></i> Next Meeting
         </h3>
-        <p class="text-text-muted">Join us on November 17th at 6PM for our monthly board meeting. The Community Forum will begin at 5:30PM.</p>
+        <p class="text-text-muted">Our next Board Meeting is {{ this.formatMeetingDate(nextMeeting) }} at 6PM. The Community Forum starts at 5:30PM — reach out to the Property Manager if you’d like to bring a topic.</p>
       </div>
       </a>
       <a [routerLink]="['/forms']">
