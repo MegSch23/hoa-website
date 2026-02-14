@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-contact-us',
@@ -26,7 +26,7 @@ export class ContactUsComponent {
   async onSubmit(form: any) {
     if (form.invalid) return;
 
-    const siteKey = '6LfDnAIsAAAAADOwdJL08KlRfoMPcp7t93Vnxkhk'; 
+    const siteKey = environment.RECAPTCHA_SITE_KEY;
     const recaptcha = (window as any).grecaptcha;
 
     if (!recaptcha || !recaptcha.execute) {
