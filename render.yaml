@@ -1,27 +1,9 @@
 services:
   - type: web
-    name: wimbledon-hoa-backend
-    env: node
-    rootDir: backend
-    branch: main
-    buildCommand: "npm install"
-    startCommand: "npm start"
-    healthCheckPath: /health
-    envVars:
-      - key: RECAPTCHA_SECRET
-        sync: false
-      - key: EMAILJS_SERVICE_ID
-        sync: false
-      - key: EMAILJS_TEMPLATE_ID
-        sync: false
-      - key: EMAILJS_USER_ID
-        sync: false
-
-  - type: web
     name: wimbledon-village-hoa
     env: static
     branch: main
-    buildCommand: "npm install && ng build --configuration production"
+    buildCommand: "ng build --configuration production"
     publishPath: "dist/wimbledon-village-hoa"
     routes:
       - type: rewrite
